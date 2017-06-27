@@ -1,0 +1,16 @@
+#container {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    border: 1px solid;
+    display: flex;
+}
+#container .button {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: auto;
+    border: 1px solid;
+    cursor: pointer;
+}
