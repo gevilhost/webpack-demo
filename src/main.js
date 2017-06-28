@@ -1,4 +1,4 @@
-require('./main.css');
+require('./main.less');
 var greet = require('./greet.js');
 /**
  * 为按钮绑定弹框问候

@@ -10,8 +10,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'autoprefixer-loader']
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'autoprefixer-loader',
+                    'less-loader'
+                ]
             },
             {
                 test: /\.jpeg$/,
