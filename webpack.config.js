@@ -1,4 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var extractCss = new ExtractTextPlugin('[name]-one.css');
+var extractLess = new ExtractTextPlugin('[name]-two.css');
 module.exports = {
     // 入口文件路径，__dirname是根目录
     entry: __dirname + '/src/main.js',
@@ -11,8 +14,18 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css/,
+                use: extractCss.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader',
+                        'autoprefixer-loader'
+                    ]
+                })
+            },
+            {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
+                use: extractLess.extract({
                     fallback: 'style-loader',
                     use: [
                         'css-loader',
@@ -30,6 +43,7 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin('main.css')
+        extractCss,
+        extractLess
     ]
 }

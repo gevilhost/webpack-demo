@@ -1,0 +1,9 @@
+#container {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    border: 1px solid;
+    display: flex;
+    background: url(./1.jpeg);
+    color: #fff;
+}
