@@ -11,13 +11,13 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader', 'autoprefixer-loader']
             },
             {
                 test: /\.jpeg$/,
                 // use: 'url-loader?limit=1024&name=[path][name].[ext]&publicPath=output/',
                 use: 'url-loader?limit=1024&name=[path][name].[ext]&outputPath=img/&publicPath=output/',
-            }
+            },
         ]
     }
 }
