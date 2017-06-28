@@ -4,6 +4,7 @@
     margin: auto;
     border: 1px solid;
     display: flex;
+    background: url(./1.jpeg);
 }
 #container .button {
     width: 100px;
