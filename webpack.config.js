@@ -1,3 +1,4 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     // 入口文件路径，__dirname是根目录
     entry: __dirname + '/src/main.js',
@@ -11,18 +12,24 @@ module.exports = {
         rules: [
             {
                 test: /\.less$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'autoprefixer-loader',
-                    'less-loader'
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader',
+                        'autoprefixer-loader',
+                        'less-loader'
+                    ]
+                })
             },
             {
                 test: /\.jpeg$/,
                 // use: 'url-loader?limit=1024&name=[path][name].[ext]&publicPath=output/',
-                use: 'url-loader?limit=1024&name=[path][name].[ext]&outputPath=img/&publicPath=output/',
+                use: 'url-loader?limit=1024&name=[path][name].[ext]&outputPath=img/&publicPath=./',
             },
         ]
-    }
+    },
+
+    plugins: [
+        new ExtractTextPlugin('main.css')
+    ]
 }
